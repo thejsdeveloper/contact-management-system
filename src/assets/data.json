@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "firstName": "Ravindra",
+        "lastName": "Hole",
+        "email": "ravi.hole@gmail.com",
+        "phoneNumber": "9866677124",
+        "status": "active"
+    },
+    {
+        "id": 2,
+        "firstName": "Ekta",
+        "lastName": "Singh",
+        "email": "ektas@gmail.com",
+        "phoneNumber": "8569743516",
+        "status": "inactive"
+    },
+    {
+        "id": 3,
+        "firstName": "Ajay",
+        "lastName": "Puranik",
+        "email": "ajayp@gmail.com",
+        "phoneNumber": "6895689123",
+        "status": "active"
+    },
+    {
+        "id": 4,
+        "firstName": "Santosh",
+        "lastName": "Hole",
+        "email": "santosh.hole@gmail.com",
+        "phoneNumber": "7124568925",
+        "status": "active"
+    },
+    {
+        "id": 5,
+        "firstName": "Palak",
+        "lastName": "Jadhav",
+        "email": "palak.ja@gmail.com",
+        "phoneNumber": "7258369416",
+        "status": "active"
+    }
+]
+
