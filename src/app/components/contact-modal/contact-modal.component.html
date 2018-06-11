@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" class="d-flex flex-column">
+    <mat-form-field>
+      <input matInput placeholder="First name" formControlName="firstName">
+
+      <mat-error *ngIf="hasError('firstName', 'required')">
+        {{REQUIRED_ERROR}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Last name" formControlName="lastName">
+      <mat-error *ngIf="hasError('lastName', 'required')">
+        {{REQUIRED_ERROR}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email">
+      <mat-error *ngIf="hasError('email', 'email') && !hasError('email', 'required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="hasError('email', 'required')">
+        {{REQUIRED_ERROR}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="number" matInput placeholder="Phone number" formControlName="phoneNumber">
+      <mat-error *ngIf="hasError('phoneNumber', 'required')">
+        {{REQUIRED_ERROR}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="status">
+        <mat-option *ngFor="let status of contactStatus" [value]="status.id">
+          {{ status.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="hasError('status', 'required')">
+        {{REQUIRED_ERROR}}
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <button class="float-right" mat-raised-button color="primary"  cdkFocusInitial>Submit</button>
+</div>
