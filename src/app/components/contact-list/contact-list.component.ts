@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
 
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { ContactService } from '../../services/contact.service';
 import { ContactModalService } from '../../services/contact-modal.service';
+import { MessageModalService } from './../../services/message-modal.service';
 
 import { IContact } from '../../models/contact-model';
 import { AutoUnsubscribe, untilDestroyed } from '../../decorators/auto-unsubscribe-decorator';
@@ -20,7 +21,8 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   constructor(
     private contactService: ContactService,
-    private contactModalService: ContactModalService
+    private contactModalService: ContactModalService,
+    private messageModalService: MessageModalService
   ) { }
 
   ngOnInit() {
@@ -41,7 +43,21 @@ export class ContactListComponent implements OnInit, OnDestroy {
   }
 
   deleteContact(contactId: string) {
-    this.contacts = this.contacts.filter(contact => contact.id !== contactId)
+
+    const data = {
+      title: `Warning`,
+      message: `Are you sure you want to delete this contact?`
+    };
+    this.messageModalService.open(data).
+    afterClosed().
+    pipe(
+      filter(flag => flag),
+      untilDestroyed(this)
+    ).
+    subscribe(editedContact =>
+      this.contacts = this.contacts.filter(contact => contact.id !== contactId)
+    );
+
   }
 
   editContact(contact: IContact) {

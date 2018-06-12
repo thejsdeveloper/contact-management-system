@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { ContactModalComponent } from './components/contact-modal/contact-modal.component';
 import { OnlyDigitsDirective } from './directives/only-digits.directive';
+import { MessageModalComponent } from './components/shared/message-modal/message-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { OnlyDigitsDirective } from './directives/only-digits.directive';
     NavbarComponent,
     ContactListComponent,
     ContactModalComponent,
+    MessageModalComponent,
     OnlyDigitsDirective
   ],
   imports: [
@@ -33,7 +35,8 @@ import { OnlyDigitsDirective } from './directives/only-digits.directive';
     AppRoutingModule
   ],
   entryComponents: [
-    ContactModalComponent
+    ContactModalComponent,
+    MessageModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

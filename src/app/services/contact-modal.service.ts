@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
-
 import { ContactModalComponent } from '../components/contact-modal/contact-modal.component';
 import { IContact } from '../models/contact-model';
 
