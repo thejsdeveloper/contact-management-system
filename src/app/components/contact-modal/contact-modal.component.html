@@ -1,9 +1,11 @@
 <div class="row align-items-center">
-  <div class="col-md-6"><h1 class="mb-0" mat-dialog-title>{{data.title}}</h1></div>
+  <div class="col-md-6">
+    <h1 class="mb-0" mat-dialog-title>{{data.title}}</h1>
+  </div>
   <div class="col-md-6 ">
-      <button class="dialog-close btn-link float-right" [mat-dialog-close]="false">
-          <i class="fa fa-times text-dark" aria-hidden="true"></i>
-        </button>
+    <button class="dialog-close btn-link float-right" [mat-dialog-close]="false">
+      <i class="fa fa-times text-dark" aria-hidden="true"></i>
+    </button>
   </div>
 </div>
 <hr>
@@ -35,10 +37,10 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input #phoneNumber  matInput  maxlength="10" onlyDigits="true" [restrictDecimal]="true" placeholder="Phone number"  formControlName="phoneNumber">
+      <input #phoneNumber matInput maxlength="10" onlyDigits="true" [restrictDecimal]="true" placeholder="Phone number" formControlName="phoneNumber">
       <mat-error *ngIf="hasError('phoneNumber', 'minlength') && !hasError('phoneNumber', 'required')">
-         {{INVALID_PHONE_NUMBER}}
-        </mat-error>
+        {{INVALID_PHONE_NUMBER}}
+      </mat-error>
       <mat-error *ngIf="hasError('phoneNumber', 'required')">
         {{REQUIRED_ERROR}}
       </mat-error>
@@ -46,7 +48,7 @@
 
     <mat-form-field>
       <mat-select placeholder="Status" formControlName="status">
-        <mat-option *ngFor="let status of contactStatus" [value]="status.id">
+        <mat-option *ngFor="let status of contactStatus" [value]="status.name">
           {{ status.name }}
         </mat-option>
       </mat-select>
@@ -56,6 +58,6 @@
     </mat-form-field>
   </form>
   <div class="d-flex justify-content-center">
-    <button class="bg-dark text-white" mat-raised-button [disabled]="!form.valid">Submit</button>
+    <button [ngClass]="{'bg-dark': !isValid(), 'text-white': !isValid() }" mat-raised-button [disabled]="isValid()" (click)="submit()">{{data.buttonText}}</button>
   </div>
 </div>

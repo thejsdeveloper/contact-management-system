@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "firstName": "Nusrat Fateh Ali",
+        "lastName": "Khan",
+        "email": "nusrat@gmail.com",
+        "phoneNumber": "9866677124",
+        "status": "Inactive"
+    },
+    {
+        "id": 2,
+        "firstName": "Jagjeet",
+        "lastName": "Singh",
+        "email": "jagjeet@gmail.com",
+        "phoneNumber": "8569743516",
+        "status": "Inactive"
+    },
+    {
+        "id": 3,
+        "firstName": "Ghulam",
+        "lastName": "Ali",
+        "email": "ali.ghulam@gmail.com",
+        "phoneNumber": "6895689123",
+        "status": "Active"
+    },
+    {
+        "id": 4,
+        "firstName": "Mehdi",
+        "lastName": "Hassan",
+        "email": "mehdi.hassan@gmail.com",
+        "phoneNumber": "7124568925",
+        "status": "Inactive"
+    },
+    {
+        "id": 5,
+        "firstName": "Farida",
+        "lastName": "Khanum",
+        "email": "farida.kh@gmail.com",
+        "phoneNumber": "7258369416",
+        "status": "Active"
+    }
+]
+

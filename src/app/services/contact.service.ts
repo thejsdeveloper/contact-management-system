@@ -13,7 +13,7 @@ constructor(private http: HttpClient) { }
 
 
 getContactList(): Observable<IContact[]> {
- return  this.http.get('../../../assets/data.json') as Observable<IContact[]>;
+ return  this.http.get('../../../assets/data/data.json') as Observable<IContact[]>;
 }
 
 }

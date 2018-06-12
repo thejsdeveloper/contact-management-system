@@ -28,19 +28,19 @@
       </thead>
 
       <tbody class="table-hover">
-        <tr *ngFor="let contact of contacts | async">
+        <tr *ngFor="let contact of contacts">
           <td>{{contact.firstName}}</td>
           <td>{{contact.lastName}}</td>
           <td>{{contact.email}}</td>
           <td>{{contact.phoneNumber}}</td>
           <td>{{contact.status}}</td>
           <td class="text-center">
-            <span>
+            <span class="cursor" (click)="editContact(contact)">
               <i class="fa fa-pencil" aria-hidden="true"></i>
             </span>
           </td>
           <td class="text-center">
-            <span>
+            <span class="cursor" (click)="deleteContact(contact.id)">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </span>
           </td>
