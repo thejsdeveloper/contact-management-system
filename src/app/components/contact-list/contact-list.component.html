@@ -16,13 +16,13 @@
 
 <div class="table-responsive border-top-0 mt-4 ">
 
-  <table class="table shadow table-grid">
+  <table class="table shadow table-grid" matSort [matSortActive]="defaultSortColumn" matSortDirection="asc" matSortDisableClear>
     <thead>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
+      <th mat-sort-header="firstName">First name</th>
+      <th mat-sort-header="lastName">Last name</th>
+      <th mat-sort-header="email">Email</th>
       <th>Phone number</th>
-      <th>Status</th>
+      <th mat-sort-header="status">Status</th>
       <th class="text-center">Edit</th>
       <th class="text-center">Delete</th>
     </thead>
