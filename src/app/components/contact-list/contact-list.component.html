@@ -2,43 +2,50 @@
   <div class="col-md-6">
     <h3>User list</h3>
   </div>
-  <div class="col-md-6">
-
-    <button class="float-right" mat-raised-button color="primary" (click)="addContact()">
+  <div class="col-md-6 align-self-center">
+    <button class="float-right bg-dark text-white" mat-raised-button  (click)="addContact()">
       <span>
-          <mat-icon><i class="fa fa-plus" aria-hidden="true"></i></mat-icon>
-          Add contact
+        <mat-icon>
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </mat-icon>
+        Add contact
       </span>
     </button>
   </div>
 </div>
 
 <div class="table-responsive border-top-0 mt-4 ">
-  <table class="table shadow">
-    <thead class="bg-dark text-white">
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Phone number</th>
-      <th>Status</th>
-      <th class="text-center">Edit</th>
-      <th class="text-center">Delete</th>
-    </thead>
+  <div class="shadow">
+    <table class="table  table-grid">
+      <thead>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Phone number</th>
+        <th>Status</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Delete</th>
+      </thead>
 
-    <tbody>
-      <tr *ngFor="let contact of contacts | async">
-        <td>{{contact.firstName}}</td>
-        <td>{{contact.lastName}}</td>
-        <td>{{contact.email}}</td>
-        <td>{{contact.phoneNumber}}</td>
-        <td>{{contact.status}}</td>
-        <td class="text-center">
-          <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
-        </td>
-        <td class="text-center">
-          <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      <tbody class="table-hover">
+        <tr *ngFor="let contact of contacts | async">
+          <td>{{contact.firstName}}</td>
+          <td>{{contact.lastName}}</td>
+          <td>{{contact.email}}</td>
+          <td>{{contact.phoneNumber}}</td>
+          <td>{{contact.status}}</td>
+          <td class="text-center">
+            <span>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+          </td>
+          <td class="text-center">
+            <span>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

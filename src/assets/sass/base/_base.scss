@@ -1,0 +1,52 @@
+body {
+  font-family: roboto-regular;
+  -webkit-text-stroke: rgba(255, 255, 255, 0.01) 0.1px; // to fix safari font smoothing
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  color: $color-black-medium;
+  letter-spacing: 0.5px !important;
+  // min-width: 768px !important;
+  overflow-y: auto;
+}
+
+// Typography
+
+h1 {
+  font-size: 42pt;
+  font-family: $font-roboto-light;
+  color: $color-black-medium;
+}
+
+h2 {
+  font-size: 26pt;
+  font-family: $font-roboto-light;
+  color: $color-black-medium;
+  padding: 48px 0 28px 0;
+  margin: 0;
+}
+
+h3 {
+  font-size: 18pt;
+  font-family: $font-roboto-medium;
+  color: $color-black-medium;
+  padding: 32px 0 24px 0;
+}
+
+h4 {
+  font-size: 14pt;
+  font-family: $font-roboto-light;
+  color: $color-black-medium;
+}
+
+h5 {
+  font-size: 13pt;
+  font-family: $font-roboto-light;
+  color: $color-black-medium;
+}
+
+h6 {
+  font-size: 12pt;
+  font-family: $font-roboto-regular;
+  color: $color-blue-light;
+}

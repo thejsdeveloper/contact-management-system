@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { ContactModalComponent } from './components/contact-modal/contact-modal.component';
+import { OnlyDigitsDirective } from './directives/only-digits.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ContactListComponent,
-    ContactModalComponent
+    ContactModalComponent,
+    OnlyDigitsDirective
   ],
   imports: [
     FormsModule,

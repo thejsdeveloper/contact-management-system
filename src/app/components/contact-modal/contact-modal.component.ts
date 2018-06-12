@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { REQUIRED_ERROR } from '../../app-constants';
+import { REQUIRED_ERROR, INVALID_PHONE_NUMBER } from '../../app-constants';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ISelectBoxOption } from '../../models/select-box-model';
 
@@ -11,6 +11,7 @@ import { ISelectBoxOption } from '../../models/select-box-model';
 export class ContactModalComponent implements OnInit {
 
   REQUIRED_ERROR = REQUIRED_ERROR;
+  INVALID_PHONE_NUMBER = INVALID_PHONE_NUMBER;
   form: FormGroup;
   contactStatus: ISelectBoxOption[];
   data: any = {
@@ -32,12 +33,13 @@ export class ContactModalComponent implements OnInit {
       'firstName': ['', Validators.required],
       'lastName': ['', Validators.required],
       'email': ['', Validators.compose([Validators.required, Validators.email])],
-      'phoneNumber': ['', Validators.required],
+      'phoneNumber': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
       'status': ['', Validators.required],
     });
   }
 
   hasError(fieldName: string, errorName: string) {
+    debugger;
     return this.form.get(fieldName).hasError(errorName);
   }
 

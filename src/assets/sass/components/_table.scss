@@ -1,0 +1,30 @@
+.table-grid {
+  th {
+    background-color: #F2F2F2;
+    color: #9B9B9B;
+    font-family: roboto-regular, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    border: none !important;
+  }
+
+  td {
+    color: $color-black-dark;
+    font-size: 13px;
+    font-family: $font-roboto-light;
+  }
+
+  &.table {
+    tr:last-child {
+        border-bottom: 1px solid #ddd;
+    }
+  }
+
+}
+
+.mat-paginator-page-size div,
+.mat-paginator-range-label{
+  color: $color-black-dark;
+  font-size: 13px;
+  font-family: $font-roboto-light;
+}
