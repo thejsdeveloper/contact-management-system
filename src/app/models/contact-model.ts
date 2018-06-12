@@ -12,3 +12,8 @@ export enum Status {
     active = 1,
     inactive
 }
+
+export interface IConfirmModalData {
+  title: string;
+  message: string;
+}

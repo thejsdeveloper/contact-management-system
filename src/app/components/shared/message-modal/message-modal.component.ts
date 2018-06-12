@@ -1,5 +1,6 @@
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Component, OnInit, Inject } from '@angular/core';
+import { IConfirmModalData } from '../../../models/contact-model';
 
 @Component({
   selector: 'app-message-modal',
@@ -8,17 +9,15 @@ import { Component, OnInit, Inject } from '@angular/core';
 })
 export class MessageModalComponent implements OnInit {
 
-  title: string;
-  message: string;
+  title: string = 'Warning';
+  message: string = 'Are you sure ?';
 
  constructor(
    public dialogRef: MatDialogRef<MessageModalComponent>,
-   @Inject(MAT_DIALOG_DATA) public data: any
+   @Inject(MAT_DIALOG_DATA) public data: IConfirmModalData
  ) { }
 
  ngOnInit() {
-
-   this.title = this.data ? this.data.title :  'Warning';
-   this.message = this.data ? this.data.message : 'Are you sure ?';
+  ({title: this.title, message: this.message} = this.data)
  }
 }

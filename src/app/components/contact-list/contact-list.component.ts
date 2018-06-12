@@ -7,7 +7,7 @@ import { ContactService } from '../../services/contact.service';
 import { ContactModalService } from '../../services/contact-modal.service';
 import { MessageModalService } from './../../services/message-modal.service';
 
-import { IContact } from '../../models/contact-model';
+import { IContact, IConfirmModalData } from '../../models/contact-model';
 import { AutoUnsubscribe, untilDestroyed } from '../../decorators/auto-unsubscribe-decorator';
 
 
@@ -47,7 +47,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   deleteContact(contactId: string) {
 
-    const data = {
+    const data: IConfirmModalData = {
       title: `Warning`,
       message: `Are you sure you want to delete this contact?`
     };
@@ -57,7 +57,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
       filter(flag => flag),
       untilDestroyed(this)
     ).
-    subscribe(editedContact =>
+    subscribe(_  =>
       this.contacts = this.contacts.filter(contact => contact.id !== contactId)
     );
 

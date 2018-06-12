@@ -45,7 +45,6 @@ export class ContactModalComponent implements OnInit, OnDestroy {
       'status': ['', Validators.required],
     });
 
-
     if (this.contact) {
       this.form.setValue(this.contact);
       this.data = EDIT_FORM_CONSTANTS
@@ -58,7 +57,6 @@ export class ContactModalComponent implements OnInit, OnDestroy {
 
   init() {
     this.data = CREATE_FORM_CONSTANTS;
-
     this.commonService.getStatus().pipe(untilDestroyed(this)).subscribe(status => this.contactStatus = status);
   }
 
