@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 /**User defined components */
 import { ContactListComponent } from './components/contact-list/contact-list.component';
+import { ContactResolverService } from './services/contact-resolver.service';
 
 
 const ROUTES: Routes = [
@@ -11,7 +12,10 @@ const ROUTES: Routes = [
     },
     {
         path: 'contact-list',
-        component: ContactListComponent
+        component: ContactListComponent,
+        resolve: {
+          contactList: ContactResolverService
+        }
     }
 ];
 

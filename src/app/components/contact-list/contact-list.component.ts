@@ -1,5 +1,7 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { filter, pluck } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 import { ContactService } from '../../services/contact.service';
 import { ContactModalService } from '../../services/contact-modal.service';
@@ -7,7 +9,7 @@ import { MessageModalService } from './../../services/message-modal.service';
 
 import { IContact } from '../../models/contact-model';
 import { AutoUnsubscribe, untilDestroyed } from '../../decorators/auto-unsubscribe-decorator';
-import { filter } from 'rxjs/operators';
+
 
 @AutoUnsubscribe()
 @Component({
@@ -20,13 +22,14 @@ export class ContactListComponent implements OnInit, OnDestroy {
   contacts: IContact[];
 
   constructor(
+    private activateRoute: ActivatedRoute,
     private contactService: ContactService,
     private contactModalService: ContactModalService,
     private messageModalService: MessageModalService
   ) { }
 
   ngOnInit() {
-    this.contactService.getContactList().pipe(untilDestroyed(this)).subscribe(data => this.contacts = data);
+    this.contacts = this.activateRoute.snapshot.data['contactList'];
   }
 
   ngOnDestroy() { }
