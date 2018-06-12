@@ -1,3 +1,7 @@
+.table-responsive{
+  max-height: 60vh;
+}
+
 .table-grid {
   th {
     background-color: #F2F2F2;
@@ -6,6 +10,11 @@
     font-size: 14px;
     font-weight: normal;
     border: none !important;
+
+    button:focus{
+      border: none !important;
+      outline: none !important;
+    }
   }
 
   td {
