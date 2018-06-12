@@ -1,4 +1,4 @@
-<div class="border-bottom mt-2 row">
+<div class="border-bottom row">
   <div class="col-md-6 col-sm-6 col">
     <h3>Contact list</h3>
   </div>
@@ -14,9 +14,10 @@
   </div>
 </div>
 
-<div class="table-responsive border-top-0 mt-4 ">
-
-  <table class="table shadow table-grid" matSort [matSortActive]="defaultSortColumn" [matSortDirection]="defaultSortDirection" matSortDisableClear>
+<div class="table-responsive shadow border-top-0 mt-4 ">
+<div>
+  <table class="table table-grid mb-0" matSort [matSortActive]="defaultSortColumn" [matSortDirection]="defaultSortDirection"
+    matSortDisableClear>
     <thead>
       <th mat-sort-header="firstName">First name</th>
       <th mat-sort-header="lastName">Last name</th>
@@ -28,7 +29,7 @@
     </thead>
 
     <tbody class="table-hover">
-      <tr *ngFor="let contact of contacts">
+      <tr *ngFor="let contact of pagedContacts">
         <td>{{contact.firstName}}</td>
         <td>{{contact.lastName}}</td>
         <td>{{contact.email}}</td>
@@ -47,5 +48,8 @@
       </tr>
     </tbody>
   </table>
+    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]">
+    </mat-paginator>
+  </div>
 
 </div>

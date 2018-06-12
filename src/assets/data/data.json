@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "firstName": "Nusrat Fateh Ali",
         "lastName": "Khan",
         "email": "nusrat@gmail.com",
@@ -8,7 +8,7 @@
         "status": "Inactive"
     },
     {
-        "id": 2,
+        "id": "2",
         "firstName": "Jagjeet",
         "lastName": "Singh",
         "email": "jagjeet@gmail.com",
@@ -16,7 +16,7 @@
         "status": "Inactive"
     },
     {
-        "id": 3,
+        "id": "3",
         "firstName": "Ghulam",
         "lastName": "Ali",
         "email": "ali.ghulam@gmail.com",
@@ -24,7 +24,7 @@
         "status": "Active"
     },
     {
-        "id": 4,
+        "id": "4",
         "firstName": "Mehdi",
         "lastName": "Hassan",
         "email": "mehdi.hassan@gmail.com",
@@ -32,12 +32,60 @@
         "status": "Inactive"
     },
     {
-        "id": 5,
+        "id": "5",
         "firstName": "Farida",
         "lastName": "Khanum",
         "email": "farida.kh@gmail.com",
         "phoneNumber": "7258369416",
         "status": "Active"
+    },
+    {
+        "id": "6",
+        "firstName": "Pankaj",
+        "lastName": "Udas",
+        "email": "pankaj.udas@gmail.com",
+        "phoneNumber": "8895623147",
+        "status": "Active"
+    },
+    {
+        "id": "7",
+        "firstName": "Begham",
+        "lastName": "Akhtar",
+        "email": "begham.akhtar@gmail.com",
+        "phoneNumber": "8954267538",
+        "status": "Inactive"
+    },
+    {
+        "id": "8",
+        "firstName": "Abida",
+        "lastName": "Parveen",
+        "email": "abida@gmail.com",
+        "phoneNumber": "7258369416",
+        "status": "Active"
+    }, 
+    {
+        "id": "9",
+        "firstName": "Chitra",
+        "lastName": "Singh",
+        "email": "chitra@gmail.com",
+        "phoneNumber": "5987456987",
+        "status": "Active"
+    },
+    {
+        "id": "10",
+        "firstName": "Noor",
+        "lastName": "Jehan",
+        "email": "noor@gmail.com",
+        "phoneNumber": "9787456987",
+        "status": "Inactive"
+    },
+    {
+        "id": "11",
+        "firstName": "Iqbal",
+        "lastName": "Bano",
+        "email": "iqbal.bano@gmail.com",
+        "phoneNumber": "9586741256",
+        "status": "Inactive"
     }
 ]
 

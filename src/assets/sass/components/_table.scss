@@ -1,12 +1,9 @@
-.table-responsive{
-  max-height: 60vh;
-}
 
 .table-grid {
   th {
     background-color: #F2F2F2;
     color: #9B9B9B;
-    font-family: roboto-regular, sans-serif;
+    font-family: $font-roboto-regular;
     font-size: 14px;
     font-weight: normal;
     border: none !important;
@@ -19,6 +16,7 @@
 
   td {
     color: $color-black-dark;
+    padding: 0.50rem;
     font-size: 13px;
     font-family: $font-roboto-light;
   }
