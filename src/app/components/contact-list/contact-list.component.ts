@@ -122,11 +122,11 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
   getTotalItems() {
     return this.contacts.length;
   }
-  deleteContact(contactId: string) {
+  deleteContact(contact: IContact) {
 
     const data: IConfirmModalData = {
       title: `Warning`,
-      message: `Are you sure you want to delete this contact?`
+      message: `Are you sure you want to delete ${contact.firstName} ${contact.lastName}?`
     };
     this.messageModalService.open(data).
       afterClosed().
@@ -134,7 +134,7 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
         filter(flag => flag),
         untilDestroyed(this)
       ).
-      subscribe(_ => this.deleteContactFromArray(contactId));
+      subscribe(_ => this.deleteContactFromArray(contact.id));
   }
 
   deleteContactFromArray(contactId: string) {
