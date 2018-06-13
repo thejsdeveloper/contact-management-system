@@ -14,8 +14,8 @@
   </div>
 </div>
 
-<div class="table-responsive shadow border-top-0 mt-4 ">
-<div>
+<div class="table-responsive shadow border-top-0 mt-4 mb-5">
+
   <table class="table table-grid mb-0" matSort [matSortActive]="defaultSortColumn" [matSortDirection]="defaultSortDirection"
     matSortDisableClear>
     <thead>
@@ -48,8 +48,8 @@
       </tr>
     </tbody>
   </table>
-    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]">
-    </mat-paginator>
-  </div>
+  <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[pageSize]">
+  </mat-paginator>
+
 
 </div>

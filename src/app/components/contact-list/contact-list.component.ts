@@ -12,6 +12,7 @@ import { MatSort, MatPaginator } from '@angular/material';
 import { CommonService } from '../../services/common.service';
 import { PaginationService } from '../../services/pagination.service';
 import { merge } from 'rxjs';
+import { CustomSnackbarService } from '../../services/custom-snackbar.service';
 
 @AutoUnsubscribe()
 @Component({
@@ -40,7 +41,8 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
     private contactModalService: ContactModalService,
     private messageModalService: MessageModalService,
     private commonService: CommonService,
-    private paginationService: PaginationService
+    private paginationService: PaginationService,
+    public customSnackbarService: CustomSnackbarService,
   ) {
 
     this.startIndex = 0;
@@ -107,7 +109,8 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
         tap(contact => this.addContactInArray(contact)),
         untilDestroyed(this)
       ).
-      subscribe(_ => {
+      subscribe((contact: IContact) => {
+        this.customSnackbarService.open(`${contact.firstName} ${contact.lastName} has been added successfully.`);
         this.contacts =  this.loadSortedData(this.sortColumn, this.sortDirection);
         this.loadPaginatedData()
       });
@@ -124,9 +127,10 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   deleteContact(contact: IContact) {
 
+    const FULL_NAME = `${contact.firstName} ${contact.lastName}`;
     const data: IConfirmModalData = {
       title: `Warning`,
-      message: `Are you sure you want to delete ${contact.firstName} ${contact.lastName}?`
+      message: `Are you sure you want to delete ${FULL_NAME}?`
     };
     this.messageModalService.open(data).
       afterClosed().
@@ -134,7 +138,10 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
         filter(flag => flag),
         untilDestroyed(this)
       ).
-      subscribe(_ => this.deleteContactFromArray(contact.id));
+      subscribe(_ => {
+        this.deleteContactFromArray(contact.id);
+        this.customSnackbarService.open(`${FULL_NAME} has been deleted sucessfully.`)
+      });
   }
 
   deleteContactFromArray(contactId: string) {
@@ -150,7 +157,10 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
         filter(editedContact => editedContact),
         untilDestroyed(this)
       ).
-      subscribe(editedContact => this.editContactInArray(editedContact));
+      subscribe((editedContact: IContact) => {
+        this.editContactInArray(editedContact);
+        this.customSnackbarService.open(`${editedContact.firstName} ${editedContact.lastName} has been updated sucessfully.`)
+      });
   }
 
   editContactInArray(editedContact: IContact) {

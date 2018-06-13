@@ -19,3 +19,13 @@ input[type=number]::-webkit-outer-spin-button {
 i {
   color:  $color-black-medium
 }
+
+.toast-z-index {
+  z-index: 1000;
+}
+
+
+.snacknbar-message {
+  font-size: 14px;
+}
+
