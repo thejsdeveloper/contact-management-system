@@ -10,12 +10,7 @@
     @include media-breakpoint-up(sm) {
       width: 60vw !important;
     }
-    @include media-breakpoint-up(md) {
-      width: 60vw !important;
-    }
-    @include media-breakpoint-up(lg) {
-      width: 65vw !important;
-    }
+
     @include media-breakpoint-up(xl) {
       width: 30vw !important;
     }
