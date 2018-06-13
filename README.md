@@ -7,6 +7,22 @@
  2. List all contacts
  3. Edit contact
  4. Delete contact
+ 5. Sorting by followin
+ i. First name
+ii. Last name
+iii. Email
+iv. Status
+6. Pagination
+### Validations
+
+1. Add Contact
+i. All fields are mandatory
+ii. Phone number should be of 10 digit.
+iii. Phone number should start from 6/7/8/9. (Mobile number validation for India)
+
+2. Edit contact
+i. Same validations as Add Contact
+ii. Update button will not be activate untill user changes something in Edit Form.
 
 ### To clone the repository
 > Run `git clone https://github.com/thejsdeveloper/contact-management-system.git`
