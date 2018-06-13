@@ -26,13 +26,12 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
   pagedContacts: IContact[];
   defaultSortColumn: string;
   defaultSortDirection: string;
-  sortDirection: string;
-  sortColumn: string;
+
   @ViewChild(MatSort) matSort: MatSort;
   @ViewChild(MatPaginator) matPaginator: MatPaginator;
   startIndex: number;
   pageSize: number;
-  currentPage: number;
+
   endIndex: number;
   totalItems: number;
 
@@ -47,20 +46,15 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.startIndex = 0;
     this.pageSize = 10;
-    this.currentPage = 0;
   }
 
   ngOnInit() {
-    this.defaultSortColumn = this.sortColumn = DEFAULT_SORT_CONTACT_COLUMN;
-    this.defaultSortDirection = this.sortDirection = DEFAULT_SORT_DIRECTION;
+    this.defaultSortColumn  = DEFAULT_SORT_CONTACT_COLUMN;
+    this.defaultSortDirection = DEFAULT_SORT_DIRECTION;
 
     this.contacts = this.activateRoute.snapshot.data['contactList'];
-
     this.totalItems = this.contacts.length;
-
-    this.startIndex = this.paginationService.getStartIndex(this.currentPage, this.totalItems);
-    this.endIndex = this.paginationService.getEndIndex(this.startIndex, this.pageSize, this.totalItems);
-    this.pagedContacts = this.paginationService.getPagedRecords(this.contacts, this.startIndex, this.endIndex);
+    this.loadPaginatedData();
   }
 
   ngAfterViewInit() {
@@ -68,35 +62,26 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
       this.matSort.sortChange.
         pipe(
           tap(sortInfo => {
-            ({ active: this.sortColumn, direction: this.sortDirection } = sortInfo);
             this.matPaginator.pageIndex = 0;
-            this.currentPage = 0;
-            this.contacts = this.loadSortedData(this.sortColumn, this.sortDirection);
+            this.matPaginator.pageIndex = 0;
+            this.contacts = this.loadSortedData();
           }),
           untilDestroyed(this)
         );
 
-    const matPaginatorStream =
-      this.matPaginator.page.
-        pipe(
-          tap(page => this.currentPage = page.pageIndex),
-          untilDestroyed(this)
-        );
-
-    merge(matSortStream, matPaginatorStream).
+    merge(matSortStream, this.matPaginator.page).
       pipe(untilDestroyed(this)).
       subscribe(_ => this.loadPaginatedData());
-
-
   }
+
   ngOnDestroy() { }
 
-  loadSortedData(sortColumn: string, sortDirection: string) {
-    return this.contacts.sort(this.commonService.sortData(sortColumn, sortDirection))
+  loadSortedData() {
+    return this.contacts.sort(this.commonService.sortData(this.matSort.active, this.matSort.direction))
   }
 
   loadPaginatedData() {
-    this.startIndex = this.paginationService.getStartIndex(this.currentPage, this.pageSize);
+    this.startIndex = this.paginationService.getStartIndex(this.matPaginator.pageIndex, this.pageSize);
     this.endIndex = this.paginationService.getEndIndex(this.startIndex, this.pageSize, this.totalItems);
     this.pagedContacts = this.paginationService.getPagedRecords(this.contacts, this.startIndex, this.endIndex);
   }
@@ -111,7 +96,7 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
       ).
       subscribe((contact: IContact) => {
         this.customSnackbarService.open(`${contact.firstName} ${contact.lastName} has been added successfully.`);
-        this.contacts =  this.loadSortedData(this.sortColumn, this.sortDirection);
+        this.contacts =  this.loadSortedData();
         this.loadPaginatedData()
       });
   }
@@ -125,6 +110,7 @@ export class ContactListComponent implements OnInit, OnDestroy, AfterViewInit {
   getTotalItems() {
     return this.contacts.length;
   }
+
   deleteContact(contact: IContact) {
 
     const FULL_NAME = `${contact.firstName} ${contact.lastName}`;
