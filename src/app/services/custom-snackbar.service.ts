@@ -18,7 +18,7 @@ export class CustomSnackbarService {
       data: {
         message: message
       },
-      duration: 100000,
+      duration: 4000,
       panelClass: ['bg-dark', 'mt-5', 'toast-z-index'],
       horizontalPosition: 'end',
       verticalPosition: 'top'

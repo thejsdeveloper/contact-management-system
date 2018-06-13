@@ -10,6 +10,7 @@ import { REQUIRED_ERROR, INVALID_PHONE_NUMBER } from '../../app-constants';
 import { CREATE_FORM_CONSTANTS, EDIT_FORM_CONSTANTS } from './../../app-constants';
 import { ISelectBoxOption } from '../../models/select-box-model';
 import { AutoUnsubscribe, untilDestroyed } from '../../decorators/auto-unsubscribe-decorator';
+import { PhoneNumberValidator } from '../../validators/phone-number-validator';
 
 @AutoUnsubscribe()
 @Component({
@@ -41,7 +42,7 @@ export class ContactModalComponent implements OnInit, OnDestroy {
       'firstName': ['', Validators.required],
       'lastName': ['', Validators.required],
       'email': ['', Validators.compose([Validators.required, Validators.email])],
-      'phoneNumber': ['', Validators.compose([Validators.required, Validators.minLength(10)])],
+      'phoneNumber': ['', Validators.compose([Validators.required, Validators.minLength(10), PhoneNumberValidator])],
       'status': ['', Validators.required],
     });
 

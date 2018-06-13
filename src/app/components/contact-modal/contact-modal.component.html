@@ -38,7 +38,7 @@
 
     <mat-form-field>
       <input #phoneNumber matInput maxlength="10" onlyDigits="true" [restrictDecimal]="true" placeholder="Phone number" formControlName="phoneNumber">
-      <mat-error *ngIf="hasError('phoneNumber', 'minlength') && !hasError('phoneNumber', 'required')">
+      <mat-error *ngIf="(hasError('phoneNumber', 'minlength') || hasError('phoneNumber', 'invalidPhoneNumber') ) && !hasError('phoneNumber', 'required')">
         {{INVALID_PHONE_NUMBER}}
       </mat-error>
       <mat-error *ngIf="hasError('phoneNumber', 'required')">
