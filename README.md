@@ -20,13 +20,13 @@
 ### Validations
 
 1. Add Contact
-* All fields are mandatory
-* Phone number should be of 10 digit.
-* Phone number should start from 6/7/8/9. (Mobile number validation for India)
+  * All fields are mandatory
+  * Phone number should be of 10 digit.
+  * Phone number should start from 6/7/8/9. (Mobile number validation for India)
 
 2. Edit contact
-* Same validations as Add Contact
-* Update button will not be activate untill user changes something in Edit Form.
+  * Same validations as Add Contact
+  * Update button will not be activate untill user changes something in Edit Form.
 
 ### To clone the repository
 > Run `git clone https://github.com/thejsdeveloper/contact-management-system.git`
