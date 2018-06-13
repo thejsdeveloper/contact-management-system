@@ -1,63 +1,65 @@
-<div class="row align-items-center">
-  <div class="col-md-6 col-sm-6 col">
-    <h1 class="mb-0" mat-dialog-title>{{data.title}}</h1>
+<div class="contact-modal">
+  <div class="row align-items-center">
+    <div class="col-md-10 col-sm-10 col-10">
+      <h1 class="mb-0" mat-dialog-title>{{data.title}}</h1>
+    </div>
+    <div class="col-md-2 col-sm-2 col-2">
+      <button class="dialog-close btn-link float-right" [mat-dialog-close]="false">
+        <i class="fa fa-times text-dark" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
-  <div class="col-md-6 col-sm-6 col ">
-    <button class="dialog-close btn-link float-right" [mat-dialog-close]="false">
-      <i class="fa fa-times text-dark" aria-hidden="true"></i>
-    </button>
-  </div>
-</div>
-<hr>
-<div mat-dialog-content>
-  <form [formGroup]="form" class="d-flex flex-column">
-    <mat-form-field>
-      <input matInput placeholder="First name" formControlName="firstName">
+  <hr>
+  <div mat-dialog-content>
+    <form [formGroup]="form" class="d-flex flex-column ">
+      <mat-form-field>
+        <input matInput placeholder="First name" formControlName="firstName">
 
-      <mat-error *ngIf="hasError('firstName', 'required')">
-        {{REQUIRED_ERROR}}
-      </mat-error>
-    </mat-form-field>
+        <mat-error *ngIf="hasError('firstName', 'required')">
+          {{REQUIRED_ERROR}}
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Last name" formControlName="lastName">
-      <mat-error *ngIf="hasError('lastName', 'required')">
-        {{REQUIRED_ERROR}}
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last name" formControlName="lastName">
+        <mat-error *ngIf="hasError('lastName', 'required')">
+          {{REQUIRED_ERROR}}
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Email" formControlName="email">
-      <mat-error *ngIf="hasError('email', 'email') && !hasError('email', 'required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="hasError('email', 'required')">
-        {{REQUIRED_ERROR}}
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="hasError('email', 'email') && !hasError('email', 'required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="hasError('email', 'required')">
+          {{REQUIRED_ERROR}}
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input #phoneNumber matInput maxlength="10" onlyDigits="true" [restrictDecimal]="true" placeholder="Phone number" formControlName="phoneNumber">
-      <mat-error *ngIf="(hasError('phoneNumber', 'minlength') || hasError('phoneNumber', 'invalidPhoneNumber') ) && !hasError('phoneNumber', 'required')">
-        {{INVALID_PHONE_NUMBER}}
-      </mat-error>
-      <mat-error *ngIf="hasError('phoneNumber', 'required')">
-        {{REQUIRED_ERROR}}
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <input #phoneNumber matInput maxlength="10" onlyDigits="true" [restrictDecimal]="true" placeholder="Phone number" formControlName="phoneNumber">
+        <mat-error *ngIf="(hasError('phoneNumber', 'minlength') || hasError('phoneNumber', 'invalidPhoneNumber') ) && !hasError('phoneNumber', 'required')">
+          {{INVALID_PHONE_NUMBER}}
+        </mat-error>
+        <mat-error *ngIf="hasError('phoneNumber', 'required')">
+          {{REQUIRED_ERROR}}
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Status" formControlName="status">
-        <mat-option *ngFor="let status of contactStatus" [value]="status.name">
-          {{ status.name }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="hasError('status', 'required')">
-        {{REQUIRED_ERROR}}
-      </mat-error>
-    </mat-form-field>
-  </form>
-  <div class="d-flex justify-content-center">
-    <button [ngClass]="{'bg-dark': !isValid(), 'text-white': !isValid() }" mat-raised-button [disabled]="isValid()" (click)="submit()">{{data.buttonText}}</button>
+      <mat-form-field>
+        <mat-select placeholder="Status" formControlName="status">
+          <mat-option *ngFor="let status of contactStatus" [value]="status.name">
+            {{ status.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="hasError('status', 'required')">
+          {{REQUIRED_ERROR}}
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <div class="d-flex justify-content-center">
+      <button [ngClass]="{'bg-dark': !isValid(), 'text-white': !isValid() }" mat-raised-button [disabled]="isValid()" (click)="submit()">{{data.buttonText}}</button>
+    </div>
   </div>
 </div>

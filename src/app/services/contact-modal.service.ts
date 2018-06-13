@@ -15,7 +15,7 @@ export class ContactModalService {
 
   open(data: IContact = null) {
     return this.dialog.open(ContactModalComponent, {
-      width: '40vw',
+    //  width: '40vw',
       data: data
     });
   }
