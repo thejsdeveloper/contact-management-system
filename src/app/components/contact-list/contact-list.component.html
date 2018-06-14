@@ -14,40 +14,41 @@
   </div>
 </div>
 
-<div class="table-responsive shadow border-top-0 mt-4 mb-5">
+<div class="shadow border-top-0 mt-4 mb-5">
+  <div class="table-responsive">
+    <table class="table table-grid mb-0" matSort [matSortActive]="defaultSortColumn" [matSortDirection]="defaultSortDirection"
+      matSortDisableClear>
+      <thead>
+        <th mat-sort-header="firstName">First name</th>
+        <th mat-sort-header="lastName">Last name</th>
+        <th mat-sort-header="email">Email</th>
+        <th>Phone number</th>
+        <th mat-sort-header="status">Status</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Delete</th>
+      </thead>
 
-  <table class="table table-grid mb-0" matSort [matSortActive]="defaultSortColumn" [matSortDirection]="defaultSortDirection"
-    matSortDisableClear>
-    <thead>
-      <th mat-sort-header="firstName">First name</th>
-      <th mat-sort-header="lastName">Last name</th>
-      <th mat-sort-header="email">Email</th>
-      <th>Phone number</th>
-      <th mat-sort-header="status">Status</th>
-      <th class="text-center">Edit</th>
-      <th class="text-center">Delete</th>
-    </thead>
-
-    <tbody class="table-hover">
-      <tr *ngFor="let contact of pagedContacts">
-        <td>{{contact.firstName}}</td>
-        <td>{{contact.lastName}}</td>
-        <td>{{contact.email}}</td>
-        <td>{{contact.phoneNumber}}</td>
-        <td>{{contact.status}}</td>
-        <td class="text-center">
-          <span class="cursor" (click)="editContact(contact)">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </span>
-        </td>
-        <td class="text-center">
-          <span class="cursor" (click)="deleteContact(contact)">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      <tbody class="table-hover">
+        <tr *ngFor="let contact of pagedContacts">
+          <td>{{contact.firstName}}</td>
+          <td>{{contact.lastName}}</td>
+          <td>{{contact.email}}</td>
+          <td>{{contact.phoneNumber}}</td>
+          <td>{{contact.status}}</td>
+          <td class="text-center">
+            <span class="cursor" (click)="editContact(contact)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>
+          </td>
+          <td class="text-center">
+            <span class="cursor" (click)="deleteContact(contact)">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <mat-paginator [length]="totalItems" [pageSize]="10" [pageSizeOptions]="[10]">
   </mat-paginator>
 </div>
