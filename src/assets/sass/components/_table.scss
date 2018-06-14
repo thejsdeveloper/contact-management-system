@@ -29,6 +29,6 @@
   font-size: 13px;
   font-family: $font-roboto-light;
   @include media-breakpoint-down(sm) {
-    margin: 0 2px !important;
+    margin: 0 !important;
   }
 }
